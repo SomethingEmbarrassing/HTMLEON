@@ -1,11 +1,12 @@
 const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 const qrContainer = document.getElementById('qrContainer');
+const qrUrl = YOUR_PUBLIC_URL || window.location.href;
 
 if (!isMobile) {
   qrContainer.style.display = 'flex';
   new QRious({
     element: document.getElementById('qrcode'),
-    value: window.location.href,
+    value: qrUrl,
     size: 180,
     background: 'white',
     foreground: 'black',
