@@ -3,87 +3,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View in AR – NWSF Model</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #000;
-      color: #fff;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    model-viewer {
-      width: 100%;
-      height: 80vh;
-      background-color: #222;
-    }
-
-    .instructions {
-      margin-top: 10px;
-      font-size: 1em;
-      text-align: center;
-    }
-
-    .qr-container {
-      margin-top: 15px;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    canvas {
-      margin-top: 10px;
-      background: #fff;
-      padding: 8px;
-      border-radius: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer integrity="sha384-T4vc5AP9W2o3EVVQC6Is5mbKqFE2eysxg1XHwaZLquK0SjtY+4cLHoN3j1mK/MmB" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" defer integrity="sha384-Dr98ddmUw2QkdCarNQ+OL7xLty7cSxgR0T7v1tq4UErS/qLV0132sBYTolRAFuOV" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <model-viewer
-    id="model"
-    src="model.glb"
-    ar
-    ar-modes="scene-viewer quick-look webxr"
-    camera-controls
-    auto-rotate
-    shadow-intensity="1"
-    environment-image="neutral"
-    ios-src="model.usdz"
-    alt="3D model of steel component">
-  </model-viewer>
+  <main>
+    <model-viewer
+      id="model"
+      src="model.glb"
+      ar
+      ar-modes="scene-viewer quick-look webxr"
+      camera-controls
+      auto-rotate
+      shadow-intensity="1"
+      environment-image="neutral"
+      ios-src="model.usdz"
+      alt="3D model of steel component">
+    </model-viewer>
 
-  <div class="instructions">
-    Tap the AR button below (on mobile), or scan the QR code from your phone to launch AR.
-  </div>
+    <div class="instructions">
+      Tap the AR button below (on mobile), or scan the QR code from your phone to launch AR.
+    </div>
 
-  <div class="qr-container" id="qrContainer">
-    <div>Scan this QR code on your phone to view in AR:</div>
-    <canvas id="qrcode"></canvas>
-  </div>
-
-  <script>
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (!isMobile) {
-      document.getElementById('qrContainer').style.display = 'flex';
-      const qr = new QRious({
-        element: document.getElementById('qrcode'),
-        value: window.location.href,
-        size: 180,
-        background: 'white',
-        foreground: 'black',
-      });
-    }
-  </script>
+    <div class="qr-container" id="qrContainer">
+      <div>Scan this QR code on your phone to view in AR:</div>
+      <canvas id="qrcode"></canvas>
+    </div>
+  </main>
 
 </body>
 </html>
