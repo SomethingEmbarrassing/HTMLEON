@@ -19,5 +19,14 @@ const MODELS = [
     "usdz": "Stoplog.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
-  }
+  },
+  {
+    "id": "Gordon Trucking",
+    "name": "Gordon Trucking",
+    "description": "Spokane HQ",
+    "glb": "Gordon Trucking.glb",
+    "usdz": "Gordon Trucking.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },
 ];
