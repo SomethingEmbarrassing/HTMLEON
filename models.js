@@ -4,19 +4,28 @@
 const MODELS = [
   {
     "id": "sm-model",
-    "name": "SM Model",
-    "description": "Steel component",
+    "name": "Valley Real Life Expansion",
+    "description": "Valley Real Life Auditorium",
     "glb": "SM Model.glb",
     "usdz": "SM Model.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
   },
   {
-    "id": "stoplog",
-    "name": "Stoplog",
-    "description": "Stoplog assembly",
-    "glb": "Stoplog.glb",
-    "usdz": "Stoplog.usdz",
+    "id": "",
+    "name": "",
+    "description": "",
+    "glb": "",
+    "usdz": "",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },
+  {
+    "id": "Maryhill",
+    "name": "Maryhill",
+    "description": "Maryhill Spokane Addition",
+    "glb": "Maryhill.glb",
+    "usdz": "Maryhill.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
   },
