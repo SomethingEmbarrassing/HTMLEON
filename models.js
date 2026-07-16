@@ -3,23 +3,59 @@
 // usdz and scale are optional.
 const MODELS = [
   {
-    "id": "sm-model",
+    "id": "25-23",
     "name": "Valley Real Life Expansion",
     "description": "Valley Real Life Auditorium",
-    "glb": "SM Model.glb",
-    "usdz": "SM Model.usdz",
+    "glb": "25-23.glb",
+    "usdz": "25-23.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
   },
   {
-    "id": "",
-    "name": "",
-    "description": "",
-    "glb": "",
-    "usdz": "",
+    "id": "25-80",
+    "name": "Boat House",
+    "description": "Boat House",
+    "glb": "25-80.glb",
+    "usdz": "25-80.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
-  },
+  },  
+  {
+    "id": "24-72",
+    "name": "KOZ on 4th",
+    "description": "KOZ Multifamily Housing",
+    "glb": "24-72.glb",
+    "usdz": "24-72.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },  
+  {
+    "id": "26-03",
+    "name": "Inland Imaging Spokane",
+    "description": "Inland Imaging Regional Breast Center",
+    "glb": "26-03.glb",
+    "usdz": "26-03.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },  
+`  {
+`    "id": "26-05",
+`    "name": "Prairie Medical Campus",
+`    "description": "Prairie Medical Campus",
+`    "glb": "26-05",
+`    "usdz": "26-05",
+`    "image": "",
+`    "scale": "0.1 0.1 0.1"
+`  },
+`  {
+`    "id": "",
+`    "name": "",
+`    "description": "",
+`    "glb": "",
+`    "usdz": "",
+`    "image": "",
+`    "scale": "0.1 0.1 0.1"
+`  },
   {
     "id": "Maryhill",
     "name": "Maryhill",
@@ -33,8 +69,8 @@ const MODELS = [
     "id": "Gordon Trucking",
     "name": "Gordon Trucking",
     "description": "Spokane HQ",
-    "glb": "Gordon Trucking.glb",
-    "usdz": "Gordon Trucking.usdz",
+    "glb": "26-49.glb",
+    "usdz": "26-49.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
   },
