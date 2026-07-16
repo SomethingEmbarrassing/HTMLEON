@@ -38,24 +38,15 @@ const MODELS = [
     "image": "",
     "scale": "0.1 0.1 0.1"
   },  
-`  {
-`    "id": "26-05",
-`    "name": "Prairie Medical Campus",
-`    "description": "Prairie Medical Campus",
-`    "glb": "26-05",
-`    "usdz": "26-05",
-`    "image": "",
-`    "scale": "0.1 0.1 0.1"
-`  },
-`  {
-`    "id": "",
-`    "name": "",
-`    "description": "",
-`    "glb": "",
-`    "usdz": "",
-`    "image": "",
-`    "scale": "0.1 0.1 0.1"
-`  },
+    {
+    "id": "26-46",
+    "name": "SCC Addition",
+    "description": "Spokane CC Expansion",
+    "glb": "26-46.glb",
+    "usdz": "26-46.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },  
   {
     "id": "Maryhill",
     "name": "Maryhill",
