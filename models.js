@@ -64,5 +64,13 @@ const MODELS = [
     "usdz": "26-49.usdz",
     "image": "",
     "scale": "0.1 0.1 0.1"
+  },  {
+    "id": "Morrow County Courthouse",
+    "name": "Morrow County Courthouse",
+    "description": "Oregon",
+    "glb": "26-09.glb",
+    "usdz": "26-09.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
   },
 ];
