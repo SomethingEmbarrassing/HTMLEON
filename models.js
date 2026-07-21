@@ -67,7 +67,7 @@ const MODELS = [
   },  {
     "id": "Morrow County Courthouse",
     "name": "Morrow County Courthouse",
-    "description": "Oregon",
+    "description": "Android only at this time",
     "glb": "26-09.glb",
     "usdz": "26-09.usdz",
     "image": "",
