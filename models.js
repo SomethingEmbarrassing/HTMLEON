@@ -48,6 +48,24 @@ const MODELS = [
     "scale": "0.1 0.1 0.1"
   },  
     {
+    "id": "26-14",
+    "name": "SREC Maintenance Shop",
+    "description": "Spokane Regional Emergency Communications",
+    "glb": "26-14.glb",
+    "usdz": "26-14.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },  
+    {
+    "id": "NIC Diesel Bay",
+    "name": "North Idaho College",
+    "description": "NIC Diesel Bay",
+    "glb": "26-18.glb",
+    "usdz": "26-18.usdz",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },  
+    {
     "id": "26-46",
     "name": "SCC Addition",
     "description": "Spokane CC Expansion",
