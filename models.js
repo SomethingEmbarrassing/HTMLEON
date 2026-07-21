@@ -38,6 +38,15 @@ const MODELS = [
     "image": "",
     "scale": "0.1 0.1 0.1"
   },  
+  {
+    "id": "26-05",
+    "name": "Prairie Medical Center",
+    "description": "Android only",
+    "glb": "26-05.glb",
+    "usdz": "",
+    "image": "",
+    "scale": "0.1 0.1 0.1"
+  },  
     {
     "id": "26-46",
     "name": "SCC Addition",
