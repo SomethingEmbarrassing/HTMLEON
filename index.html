@@ -21,6 +21,9 @@
       <h1>Model Library</h1>
       <p class="subtitle">Select a model to view in 3D or launch AR on mobile</p>
     </header>
+    <nav class="region-chips" id="regionChips" aria-label="Filter by region">
+      <!-- Chips injected by script.js -->
+    </nav>
     <div class="card-grid" id="cardGrid">
       <!-- Cards injected by script.js -->
     </div>
@@ -31,13 +34,14 @@
     <header class="viewer-header">
       <button id="backBtn" class="back-btn" type="button">&#8592; All models</button>
       <h2 id="viewerTitle"></h2>
+      <button id="helpBtn" class="help-btn" type="button" title="Controls">?</button>
     </header>
 
     <div class="viewer-wrap">
       <model-viewer
         id="model"
         ar
-        ar-modes="scene-viewer quick-look webxr"
+        ar-modes="webxr scene-viewer quick-look"
         camera-controls
         auto-rotate
         shadow-intensity="1"
@@ -61,7 +65,38 @@
     </div>
   </section>
 
+  <!-- Controls help modal -->
+  <div id="helpModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Controls</h3>
+        <button id="helpClose" class="back-btn" type="button">Close</button>
+      </div>
+      <div class="modal-columns">
+        <div>
+          <h4>3D view (this page)</h4>
+          <ul>
+            <li><b>One finger drag</b> — rotate around the model</li>
+            <li><b>Two finger drag</b> — slide / pan</li>
+            <li><b>Pinch</b> or scroll wheel — zoom</li>
+            <li>Desktop: left-drag rotates, right-drag pans</li>
+          </ul>
+        </div>
+        <div>
+          <h4>AR mode (after tapping AR)</h4>
+          <ul>
+            <li><b>One finger drag</b> — slide model across the surface</li>
+            <li><b>Two fingers twist</b> — rotate model</li>
+            <li><b>Pinch</b> — resize model</li>
+            <li><b>Lift your finger</b> — model anchors; walking then moves <i>you</i> around it</li>
+            <li>Model follows you while walking? You're still dragging — let go to anchor it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 
-<!-- © 2025 Matt Leon. All rights reserved. This code is proprietary and may not be copied, reused, or redistributed without explicit permission. -->
+<!-- © 2025-2026 Matt Leon. All rights reserved. This code is proprietary and may not be copied, reused, or redistributed without explicit permission. -->

@@ -1,49 +1,36 @@
 # HTMLEON
-HTML page for Android/IOS/Desktop to display GLB from IFC and use AR if on mobile.
 
-Opens with a card gallery of models; selecting a card loads it in the 3D/AR viewer.
+One-page model gallery for Android/iOS/Desktop: image cards → 3D viewer → AR on mobile.
+Card gallery with optional region filter chips; models load only when a card is opened, so the page stays light on phones.
 
 ## Adding a model (no code changes)
 
-1. Copy the `.glb` (and optional `.usdz` for iOS AR, and optional thumbnail image) into this folder.
+1. Copy the `.glb` (and optional `.usdz` for iOS AR) into this folder, and a card image into `thumbs/`.
 2. Add an entry to the list in `models.js`:
 
-```json
+```js
 {
-  "id": "new-part",
-  "name": "New Part",
+  "id": "27-01",                  // unique; used in QR/deep links (?model=27-01)
+  "name": "New Project",
   "description": "Optional caption",
-  "glb": "New Part.glb",
-  "usdz": "New Part.usdz",
-  "image": "new-part.jpg",
-  "scale": "0.1 0.1 0.1"
+  "glb": "27-01.glb",
+  "usdz": "27-01.usdz",           // optional; iOS AR only
+  "image": "thumbs/27-01.jpg",    // card image; "" = live 3D preview (heavy on phones)
+  "region": "Downtown",           // any label; filter chips build themselves. "" = All only
+  "scale": "0.1 0.1 0.1"          // browser-view size; AR places at real size
 }
 ```
 
-Notes:
-- `id` must be unique (used in QR/deep links: `?model=new-part`).
-- Leave `image` blank (`""`) to show a live rotating 3D preview on the card instead.
-- `usdz` and `scale` are optional.
+## Regions
+
+Filter chips are generated from whatever `region` values exist in `models.js`.
+No regions set = no chips shown. Add a new region name to any model and its chip appears.
 
 ## Public URL for QR codes
 
-When the site is hosted publicly, you may want the QR code to point to a
-specific URL rather than the current location. Define a global
-`YOUR_PUBLIC_URL` before loading `script.js`:
+`YOUR_PUBLIC_URL` is set in `index.html` and is used to build the QR deep links.
 
-```html
-<script>
-  const YOUR_PUBLIC_URL = 'https://example.com/htmleon';
-</script>
-<script src="script.js"></script>
-```
+## Notes
 
-Alternatively, inject the variable from your hosting environment. For
-example, in a simple shell script:
-
-```bash
-export YOUR_PUBLIC_URL="https://example.com/htmleon"
-```
-
-Ensure that `YOUR_PUBLIC_URL` resolves to the public address where the page
-is served so the generated QR code directs to the correct location.
+- Keep model files under 100MB for GitHub Pages.
+- Local testing needs a local server (e.g. `python -m http.server`) — `file://` blocks .glb loading.

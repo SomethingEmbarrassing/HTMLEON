@@ -3,6 +3,7 @@ const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 const gallery = document.getElementById('gallery');
 const viewer = document.getElementById('viewer');
 const cardGrid = document.getElementById('cardGrid');
+const regionChips = document.getElementById('regionChips');
 const modelViewer = document.getElementById('model');
 const viewerTitle = document.getElementById('viewerTitle');
 const backBtn = document.getElementById('backBtn');
@@ -10,6 +11,7 @@ const qrContainer = document.getElementById('qrContainer');
 const loadingOverlay = document.getElementById('loadingOverlay');
 
 let models = [];
+let activeRegion = 'All';
 let qr = null;
 
 function init() {
@@ -19,6 +21,7 @@ function init() {
   }
   models = MODELS;
 
+  renderChips();
   renderCards();
 
   // Deep link: ?model=<id> opens the viewer directly (used by QR codes)
@@ -29,15 +32,38 @@ function init() {
   }
 }
 
+function renderChips() {
+  const regions = [...new Set(models.map(m => (m.region || '').trim()).filter(Boolean))];
+  if (regions.length === 0) {
+    regionChips.style.display = 'none';
+    return;
+  }
+  regionChips.innerHTML = '';
+  ['All', ...regions].forEach(r => {
+    const chip = document.createElement('button');
+    chip.className = 'chip' + (r === activeRegion ? ' active' : '');
+    chip.type = 'button';
+    chip.textContent = r;
+    chip.addEventListener('click', () => {
+      activeRegion = r;
+      renderChips();
+      renderCards();
+    });
+    regionChips.appendChild(chip);
+  });
+}
+
 function renderCards() {
   cardGrid.innerHTML = '';
-  models.forEach(m => {
+  const visible = models.filter(m =>
+    activeRegion === 'All' || (m.region || '').trim() === activeRegion);
+  visible.forEach(m => {
     const card = document.createElement('button');
     card.className = 'card';
     card.type = 'button';
-    // Use the image from models.json if provided; otherwise show a live 3D preview
+    // Image thumbnail if provided; otherwise a live 3D preview (heavy on resources — use sparingly)
     const preview = m.image
-      ? `<img class="card-preview" src="${encodeURI(m.image)}" alt="${m.name}">`
+      ? `<img class="card-preview" src="${encodeURI(m.image)}" alt="${m.name}" loading="lazy">`
       : `<model-viewer
           class="card-preview"
           src="${encodeURI(m.glb)}"
@@ -54,6 +80,7 @@ function renderCards() {
       <div class="card-body">
         <span class="card-title">${m.name}</span>
         <span class="card-desc">${m.description || ''}</span>
+        ${m.region ? `<span class="card-region">${m.region}</span>` : ''}
       </div>`;
     card.addEventListener('click', () => openViewer(m, true));
     cardGrid.appendChild(card);
@@ -67,7 +94,7 @@ function openViewer(m, pushState) {
   modelViewer.setAttribute('src', m.glb);
   if (m.usdz) modelViewer.setAttribute('ios-src', m.usdz);
   else modelViewer.removeAttribute('ios-src');
-  if (m.scale) modelViewer.setAttribute('scale', m.scale);
+  modelViewer.setAttribute('scale', m.scale || '1 1 1');
   modelViewer.setAttribute('alt', `3D model of ${m.name}`);
 
   gallery.classList.add('hidden');
@@ -108,12 +135,20 @@ function openViewer(m, pushState) {
 function showGallery(pushState) {
   viewer.classList.add('hidden');
   gallery.classList.remove('hidden');
+  // Release the big model so the gallery stays light on phones
+  modelViewer.removeAttribute('src');
+  modelViewer.removeAttribute('ios-src');
   if (pushState) {
     history.pushState({}, '', window.location.pathname);
   }
 }
 
 backBtn.addEventListener('click', () => showGallery(true));
+
+const helpModal = document.getElementById('helpModal');
+document.getElementById('helpBtn').addEventListener('click', () => helpModal.classList.remove('hidden'));
+document.getElementById('helpClose').addEventListener('click', () => helpModal.classList.add('hidden'));
+helpModal.addEventListener('click', (e) => { if (e.target === helpModal) helpModal.classList.add('hidden'); });
 
 window.addEventListener('popstate', () => {
   const requested = new URLSearchParams(window.location.search).get('model');
