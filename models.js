@@ -91,7 +91,7 @@ const MODELS = [
     "glb": "26-05.glb",
     "usdz": "",
     "image": "thumbs/26-05.jpg",
-    "region": "",
+    "region": "North Idaho",
     "scale": "0.1 0.1 0.1"
   },
   {
@@ -112,6 +112,16 @@ const MODELS = [
     "usdz": "26-14.usdz",
     "image": "thumbs/26-14.jpg",
     "region": "Spokane Valley",
+    "scale": "0.1 0.1 0.1"
+  },  
+  {
+    "id": "26-61",
+    "name": "Skyline Elementary",
+    "description": "Skyline Elementary School",
+    "glb": "26-61.glb",
+    "usdz": "26-61.usdz",
+    "image": "",
+    "region": "Western Washington",
     "scale": "0.1 0.1 0.1"
   },
   {
